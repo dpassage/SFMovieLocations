@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		6B8C8F391F9965B30007434B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B8C8F381F9965B30007434B /* AppDelegate.swift */; };
 		6B8C8F3C1F9965B30007434B /* SFMovieLocations.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6B8C8F3A1F9965B30007434B /* SFMovieLocations.xcdatamodeld */; };
-		6B8C8F3E1F9965B30007434B /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B8C8F3D1F9965B30007434B /* MasterViewController.swift */; };
 		6B8C8F401F9965B30007434B /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B8C8F3F1F9965B30007434B /* DetailViewController.swift */; };
 		6B8C8F431F9965B30007434B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6B8C8F411F9965B30007434B /* Main.storyboard */; };
 		6B8C8F451F9965B30007434B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6B8C8F441F9965B30007434B /* Assets.xcassets */; };
@@ -19,6 +18,8 @@
 		6B8C8F611F99725A0007434B /* TestData in Resources */ = {isa = PBXBuildFile; fileRef = 6B8C8F601F99725A0007434B /* TestData */; };
 		6B8C8F641F99780D0007434B /* MoveLocationAPIResultTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B8C8F631F99780D0007434B /* MoveLocationAPIResultTests.swift */; };
 		6B8C8F661F99826B0007434B /* MovieLocationsAPIResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B8C8F651F99826B0007434B /* MovieLocationsAPIResult.swift */; };
+		6B8C8F691F998D040007434B /* LocationListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B8C8F681F998D040007434B /* LocationListViewController.swift */; };
+		6B8C8F6B1F998D570007434B /* LocationListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B8C8F6A1F998D570007434B /* LocationListViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,7 +36,6 @@
 		6B8C8F351F9965B30007434B /* SFMovieLocations.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SFMovieLocations.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B8C8F381F9965B30007434B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6B8C8F3B1F9965B30007434B /* SFMovieLocations.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SFMovieLocations.xcdatamodel; sourceTree = "<group>"; };
-		6B8C8F3D1F9965B30007434B /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
 		6B8C8F3F1F9965B30007434B /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		6B8C8F421F9965B30007434B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		6B8C8F441F9965B30007434B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -48,6 +48,8 @@
 		6B8C8F601F99725A0007434B /* TestData */ = {isa = PBXFileReference; lastKnownFileType = folder; path = TestData; sourceTree = "<group>"; };
 		6B8C8F631F99780D0007434B /* MoveLocationAPIResultTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoveLocationAPIResultTests.swift; sourceTree = "<group>"; };
 		6B8C8F651F99826B0007434B /* MovieLocationsAPIResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieLocationsAPIResult.swift; sourceTree = "<group>"; };
+		6B8C8F681F998D040007434B /* LocationListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationListViewController.swift; sourceTree = "<group>"; };
+		6B8C8F6A1F998D570007434B /* LocationListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationListViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,9 +91,9 @@
 		6B8C8F371F9965B30007434B /* SFMovieLocations */ = {
 			isa = PBXGroup;
 			children = (
+				6B8C8F671F998CDD0007434B /* LocationList */,
 				6B8C8F5D1F9966F50007434B /* Services */,
 				6B8C8F381F9965B30007434B /* AppDelegate.swift */,
-				6B8C8F3D1F9965B30007434B /* MasterViewController.swift */,
 				6B8C8F3F1F9965B30007434B /* DetailViewController.swift */,
 				6B8C8F411F9965B30007434B /* Main.storyboard */,
 				6B8C8F441F9965B30007434B /* Assets.xcassets */,
@@ -128,6 +130,15 @@
 				6B8C8F631F99780D0007434B /* MoveLocationAPIResultTests.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		6B8C8F671F998CDD0007434B /* LocationList */ = {
+			isa = PBXGroup;
+			children = (
+				6B8C8F681F998D040007434B /* LocationListViewController.swift */,
+				6B8C8F6A1F998D570007434B /* LocationListViewModel.swift */,
+			);
+			path = LocationList;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -236,10 +247,11 @@
 			files = (
 				6B8C8F3C1F9965B30007434B /* SFMovieLocations.xcdatamodeld in Sources */,
 				6B8C8F391F9965B30007434B /* AppDelegate.swift in Sources */,
-				6B8C8F3E1F9965B30007434B /* MasterViewController.swift in Sources */,
+				6B8C8F691F998D040007434B /* LocationListViewController.swift in Sources */,
 				6B8C8F661F99826B0007434B /* MovieLocationsAPIResult.swift in Sources */,
 				6B8C8F5F1F9967190007434B /* MovieLocationService.swift in Sources */,
 				6B8C8F401F9965B30007434B /* DetailViewController.swift in Sources */,
+				6B8C8F6B1F998D570007434B /* LocationListViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
