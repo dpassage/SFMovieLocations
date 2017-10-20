@@ -8,64 +8,57 @@
 
 import Foundation
 
-struct MovieLocationAPIResult: Decodable {
-    var movieLocations: [MovieLocationRecord]
-
-    enum CodingKeys : String, CodingKey {
-        case movieLocations = "data"
-    }
+enum Result<T> {
+    case some(T)
+    case error(Error)
 }
 
-struct MovieLocationRecord: Decodable {
-    var title: String
-    var releaseYear: Int
-    var location: String?
-    var funFact: String?
-    var productionCompany: String?
-    var distributor: String?
-    var director: String?
-    var writer: String?
-    var actors: [String] = []
+typealias MovieLocationServiceClosure = (Result<MovieLocationAPIResult>) -> Void
 
-    /* sample entry:
-    // [ 1586, "26E9B6AF-8668-4D34-92FA-277561CA580F", 1586, 1477603027, "881420", 1477603027, "881420", null, //metadata
-        "Zodiac", // title
-        "2007", // release year
-        "SF Chronicle Building (901 Mission St)", // location
-        null, // fun fact
-        "Paramount Pictures", // production company
-        "Paramount Pictures", // distributor
-        "David Fincher", // director
-        "James Vanderbilt", // writer
-        "Jake Gyllenhaal", "Mark Ruffalo", null // actors
-    ]
-     */
-    init(from decoder: Decoder) throws {
-        var container = try decoder.unkeyedContainer()
-        // skipping values we don't care about
-        let _ = try container.decode(Int.self)
-        let _ = try container.decode(String.self)
-        let _ = try container.decode(Int.self)
-        let _ = try container.decode(Int.self)
-        let _ = try container.decode(String.self)
-        let _ = try container.decode(Int.self)
-        let _ = try container.decode(String.self)
-        let _ = try container.decodeNil()
+fileprivate let endpointURL = URL(string: "https://data.sfgov.org/api/views/yitu-d5am/rows.json?accessType=DOWNLOAD")!
 
-        self.title = try container.decode(String.self)
-        let yearString = try container.decode(String.self)
-        self.releaseYear = Int(yearString) ?? 0
-        self.location = try container.decodeIfPresent(String.self)
-        self.funFact = try container.decodeIfPresent(String.self)
-        self.productionCompany = try container.decodeIfPresent(String.self)
-        self.distributor = try container.decodeIfPresent(String.self)
-        self.director = try container.decodeIfPresent(String.self)
-        self.writer = try container.decodeIfPresent(String.self)
+enum MovieLocationServiceError: Error {
+    case httpError
+    case noData
+}
 
-        while !container.isAtEnd {
-            if let actor = try container.decodeIfPresent(String.self) {
-                self.actors.append(actor)
+class MovieLocationService {
+
+    /// Retrieves the latest set of movie locations from the API endpoint.
+    /// Network operations are in the background; closure is called on the main thread
+    ///
+    /// - Parameter closure: callback for results
+    func getMovieLocations(_ closure: @escaping MovieLocationServiceClosure) {
+        let session = URLSession.shared
+
+        let mainthreadClosure: MovieLocationServiceClosure = { result in
+            DispatchQueue.main.async {
+                closure(result)
             }
         }
+
+        let task = session.dataTask(with: endpointURL) { (data, response, error) in
+            guard let data = data else {
+                let error = error ?? MovieLocationServiceError.noData
+                mainthreadClosure(.error(error))
+                return
+            }
+
+            guard let response = response as? HTTPURLResponse,
+                (200..<300).contains(response.statusCode) else {
+                    mainthreadClosure(.error(MovieLocationServiceError.httpError))
+                    return
+            }
+
+            do {
+                let decoder = JSONDecoder()
+                let result = try decoder.decode(MovieLocationAPIResult.self, from: data)
+                mainthreadClosure(.some(result))
+            } catch {
+                mainthreadClosure(.error(error))
+            }
+        }
+
+        task.resume()
     }
 }
