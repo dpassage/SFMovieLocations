@@ -13,7 +13,7 @@ import Foundation
 struct MovieLocationAPIResult: Decodable {
     var movieLocations: [MovieLocationRecord]
 
-    enum CodingKeys : String, CodingKey {
+    enum CodingKeys: String, CodingKey {
         case movieLocations = "data"
     }
 }
@@ -30,7 +30,8 @@ struct MovieLocationRecord: Decodable {
     var actors: [String] = []
 
     /* sample entry:
-     // [ 1586, "26E9B6AF-8668-4D34-92FA-277561CA580F", 1586, 1477603027, "881420", 1477603027, "881420", null, //metadata
+     [
+     1586, "26E9B6AF-8668-4D34-92FA-277561CA580F", 1586, 1477603027, "881420", 1477603027, "881420", null, //metadata
      "Zodiac", // title
      "2007", // release year
      "SF Chronicle Building (901 Mission St)", // location
@@ -45,14 +46,14 @@ struct MovieLocationRecord: Decodable {
     init(from decoder: Decoder) throws {
         var container = try decoder.unkeyedContainer()
         // skipping values we don't care about
-        let _ = try container.decode(Int.self)
-        let _ = try container.decode(String.self)
-        let _ = try container.decode(Int.self)
-        let _ = try container.decode(Int.self)
-        let _ = try container.decode(String.self)
-        let _ = try container.decode(Int.self)
-        let _ = try container.decode(String.self)
-        let _ = try container.decodeNil()
+        _ = try container.decode(Int.self)
+        _ = try container.decode(String.self)
+        _ = try container.decode(Int.self)
+        _ = try container.decode(Int.self)
+        _ = try container.decode(String.self)
+        _ = try container.decode(Int.self)
+        _ = try container.decode(String.self)
+        _ = try container.decodeNil()
 
         self.title = try container.decode(String.self)
         let yearString = try container.decode(String.self)

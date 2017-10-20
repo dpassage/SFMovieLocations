@@ -18,7 +18,6 @@ class LocationMapViewController: UIViewController {
 
     @IBOutlet weak var map: MKMapView!
 
-
     func configureView() {
         // Update the user interface for the detail item.
         if let location = detailItem?.location {
@@ -27,7 +26,7 @@ class LocationMapViewController: UIViewController {
             request.region = sanFranciscoRegion
 
             let search = MKLocalSearch(request: request)
-            search.start(completionHandler: { (response, error) in
+            search.start(completionHandler: { (response, _) in
                 if let response = response,
                     let item = response.mapItems.first {
                     self.map.addAnnotation(item.placemark)

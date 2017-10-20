@@ -15,7 +15,7 @@ class MoveLocationAPIResultTests: XCTestCase {
     func testDecoding() throws {
         let bundle = Bundle(for: MoveLocationAPIResultTests.self)
         let url = bundle.url(forResource: "sampledata", withExtension: "json", subdirectory: "TestData")!
-        let data = try! Data(contentsOf: url)
+        let data = try Data(contentsOf: url)
         let decoder = JSONDecoder()
         do {
             let result = try decoder.decode(MovieLocationAPIResult.self, from: data)
@@ -34,7 +34,7 @@ class MoveLocationAPIResultTests: XCTestCase {
 
         } catch {
             print(error)
-            XCTFail()
+            XCTFail("should not have thrown \(error)")
             return
         }
 

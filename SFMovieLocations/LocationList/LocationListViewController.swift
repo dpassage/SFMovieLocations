@@ -15,7 +15,7 @@ class LocationListViewController: UIViewController {
     var viewModel: LocationListViewModel = LocationListViewModel()
 
     var locations: [MovieLocationRecord] = []
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -33,15 +33,16 @@ class LocationListViewController: UIViewController {
             if let indexPath = tableView.indexPathForSelectedRow,
                 locations.indices.contains(indexPath.row) {
                 let location = locations[indexPath.row]
-                let controller = (segue.destination as! UINavigationController).topViewController as! LocationMapViewController
+                guard let controller = (segue.destination as? UINavigationController)?.topViewController
+                    as? LocationMapViewController else {
+                    return
+                }
                 controller.detailItem = location
                 controller.navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
                 controller.navigationItem.leftItemsSupplementBackButton = true
             }
         }
     }
-
-
 }
 
 extension LocationListViewController: LocationListViewModelDelegate {
@@ -75,7 +76,7 @@ extension LocationListViewController: UITableViewDelegate, UITableViewDataSource
             cell.textLabel?.text = "\(location.title) (\(location.releaseYear))"
             cell.detailTextLabel?.text = location.location
         }
-        
+
         return cell
     }
 }

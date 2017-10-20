@@ -15,7 +15,7 @@ enum Result<T> {
 
 typealias MovieLocationServiceClosure = (Result<MovieLocationAPIResult>) -> Void
 
-fileprivate let endpointURL = URL(string: "https://data.sfgov.org/api/views/yitu-d5am/rows.json?accessType=DOWNLOAD")!
+private let endpointURL = URL(string: "https://data.sfgov.org/api/views/yitu-d5am/rows.json?accessType=DOWNLOAD")!
 
 enum MovieLocationServiceError: Error {
     case httpError
