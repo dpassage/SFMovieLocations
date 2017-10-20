@@ -27,6 +27,21 @@ class LocationListViewController: UIViewController {
         NSLog("refreshing view model")
         viewModel.refresh()
     }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showDetail" {
+            if let indexPath = tableView.indexPathForSelectedRow,
+                locations.indices.contains(indexPath.row) {
+                let location = locations[indexPath.row]
+                let controller = (segue.destination as! UINavigationController).topViewController as! LocationMapViewController
+                controller.detailItem = location
+                controller.navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
+                controller.navigationItem.leftItemsSupplementBackButton = true
+            }
+        }
+    }
+
+
 }
 
 extension LocationListViewController: LocationListViewModelDelegate {

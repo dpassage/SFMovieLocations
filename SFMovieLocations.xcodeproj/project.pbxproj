@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		6B8C8F391F9965B30007434B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B8C8F381F9965B30007434B /* AppDelegate.swift */; };
 		6B8C8F3C1F9965B30007434B /* SFMovieLocations.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6B8C8F3A1F9965B30007434B /* SFMovieLocations.xcdatamodeld */; };
-		6B8C8F401F9965B30007434B /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B8C8F3F1F9965B30007434B /* DetailViewController.swift */; };
+		6B8C8F401F9965B30007434B /* LocationMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B8C8F3F1F9965B30007434B /* LocationMapViewController.swift */; };
 		6B8C8F431F9965B30007434B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6B8C8F411F9965B30007434B /* Main.storyboard */; };
 		6B8C8F451F9965B30007434B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6B8C8F441F9965B30007434B /* Assets.xcassets */; };
 		6B8C8F481F9965B30007434B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6B8C8F461F9965B30007434B /* LaunchScreen.storyboard */; };
@@ -36,7 +36,7 @@
 		6B8C8F351F9965B30007434B /* SFMovieLocations.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SFMovieLocations.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B8C8F381F9965B30007434B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6B8C8F3B1F9965B30007434B /* SFMovieLocations.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SFMovieLocations.xcdatamodel; sourceTree = "<group>"; };
-		6B8C8F3F1F9965B30007434B /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		6B8C8F3F1F9965B30007434B /* LocationMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationMapViewController.swift; sourceTree = "<group>"; };
 		6B8C8F421F9965B30007434B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		6B8C8F441F9965B30007434B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6B8C8F471F9965B30007434B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -94,7 +94,7 @@
 				6B8C8F671F998CDD0007434B /* LocationList */,
 				6B8C8F5D1F9966F50007434B /* Services */,
 				6B8C8F381F9965B30007434B /* AppDelegate.swift */,
-				6B8C8F3F1F9965B30007434B /* DetailViewController.swift */,
+				6B8C8F3F1F9965B30007434B /* LocationMapViewController.swift */,
 				6B8C8F411F9965B30007434B /* Main.storyboard */,
 				6B8C8F441F9965B30007434B /* Assets.xcassets */,
 				6B8C8F461F9965B30007434B /* LaunchScreen.storyboard */,
@@ -250,7 +250,7 @@
 				6B8C8F691F998D040007434B /* LocationListViewController.swift in Sources */,
 				6B8C8F661F99826B0007434B /* MovieLocationsAPIResult.swift in Sources */,
 				6B8C8F5F1F9967190007434B /* MovieLocationService.swift in Sources */,
-				6B8C8F401F9965B30007434B /* DetailViewController.swift in Sources */,
+				6B8C8F401F9965B30007434B /* LocationMapViewController.swift in Sources */,
 				6B8C8F6B1F998D570007434B /* LocationListViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
