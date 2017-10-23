@@ -21,6 +21,7 @@ class LocationListViewModel {
 
     init(locationService: MovieLocationService = MovieLocationService()) {
         self.locationService = locationService
+        refresh()
     }
 
     func refresh() {
