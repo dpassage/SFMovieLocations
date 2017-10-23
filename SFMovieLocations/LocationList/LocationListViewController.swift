@@ -8,9 +8,7 @@
 
 import UIKit
 
-class LocationListViewController: UIViewController {
-
-    @IBOutlet weak var tableView: UITableView!
+class LocationListViewController: UITableViewController {
 
     var viewModel: LocationListViewModel = LocationListViewModel()
 
@@ -20,6 +18,9 @@ class LocationListViewController: UIViewController {
         super.viewDidLoad()
 
         viewModel.delegate = self
+        refreshControl?.addTarget(self,
+                                  action: #selector(LocationListViewController.handleRefresh(refreshControl:)),
+                                  for: .valueChanged)
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -43,6 +44,10 @@ class LocationListViewController: UIViewController {
             }
         }
     }
+
+    @objc func handleRefresh(refreshControl: UIRefreshControl) {
+        viewModel.refresh()
+    }
 }
 
 extension LocationListViewController: LocationListViewModelDelegate {
@@ -50,25 +55,28 @@ extension LocationListViewController: LocationListViewModelDelegate {
         NSLog("in updatedLocations")
         locations = updatedLocations
         tableView.reloadData()
+        refreshControl?.endRefreshing()
     }
 
     func viewModel(_: LocationListViewModel, error: Error) {
+        refreshControl?.endRefreshing()
         let alert = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default))
         self.present(alert, animated: true)
     }
 }
 
-extension LocationListViewController: UITableViewDelegate, UITableViewDataSource {
-    func numberOfSections(in tableView: UITableView) -> Int {
+// MARK: - UITableViewDelegate, UITableViewDataSource
+extension LocationListViewController {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
 
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return section == 0 ? locations.count : 0
     }
 
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "LocationListCell", for: indexPath)
 
         if locations.indices.contains(indexPath.row) {
