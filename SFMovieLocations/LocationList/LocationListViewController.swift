@@ -38,7 +38,7 @@ class LocationListViewController: UITableViewController {
                     as? LocationMapViewController else {
                     return
                 }
-                controller.detailItem = location
+                controller.viewModel = LocationMapViewModel(movieLocation: location)
                 controller.navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
                 controller.navigationItem.leftItemsSupplementBackButton = true
             }

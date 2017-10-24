@@ -18,42 +18,29 @@ class LocationMapViewController: UIViewController {
 
     @IBOutlet weak var map: MKMapView!
 
-    func configureView() {
-        // Update the user interface for the detail item.
-        if let location = detailItem?.location {
-            let request = MKLocalSearchRequest()
-            request.naturalLanguageQuery = location
-            request.region = sanFranciscoRegion
-
-            let search = MKLocalSearch(request: request)
-            search.start(completionHandler: { (response, _) in
-                if let response = response,
-                    let item = response.mapItems.first {
-                    self.map.addAnnotation(item.placemark)
-                }
-            })
-
-        }
-    }
+    var viewModel: LocationMapViewModel?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         map.delegate = self
         map.setRegion(sanFranciscoRegion, animated: false)
-        configureView()
+        viewModel?.delegate = self
+        updateMap()
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
-    var detailItem: MovieLocationRecord? {
-        didSet {
-            // Update the view.
-            configureView()
+    func updateMap() {
+        let currentAnnotations = map.annotations
+        map.removeAnnotations(currentAnnotations)
+        if let newAnnoation = viewModel?.mapAnnotation {
+            map.addAnnotation(newAnnoation)
         }
+    }
+}
+
+extension LocationMapViewController: LocationMapViewModelDelegate {
+    func locationMapDidResolveLocation(viewModel: LocationMapViewModel) {
+        updateMap()
     }
 }
 

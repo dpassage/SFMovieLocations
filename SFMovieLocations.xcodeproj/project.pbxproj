@@ -19,6 +19,7 @@
 		6B8C8F661F99826B0007434B /* MovieLocationsAPIResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B8C8F651F99826B0007434B /* MovieLocationsAPIResult.swift */; };
 		6B8C8F691F998D040007434B /* LocationListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B8C8F681F998D040007434B /* LocationListViewController.swift */; };
 		6B8C8F6B1F998D570007434B /* LocationListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B8C8F6A1F998D570007434B /* LocationListViewModel.swift */; };
+		6B9F08581F9EE73D00DED2A6 /* LocationMapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B9F08571F9EE73D00DED2A6 /* LocationMapViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +49,7 @@
 		6B8C8F651F99826B0007434B /* MovieLocationsAPIResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieLocationsAPIResult.swift; sourceTree = "<group>"; };
 		6B8C8F681F998D040007434B /* LocationListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationListViewController.swift; sourceTree = "<group>"; };
 		6B8C8F6A1F998D570007434B /* LocationListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationListViewModel.swift; sourceTree = "<group>"; };
+		6B9F08571F9EE73D00DED2A6 /* LocationMapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationMapViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,10 +91,10 @@
 		6B8C8F371F9965B30007434B /* SFMovieLocations */ = {
 			isa = PBXGroup;
 			children = (
+				6B9F08561F9EE72800DED2A6 /* LocationMap */,
 				6B8C8F671F998CDD0007434B /* LocationList */,
 				6B8C8F5D1F9966F50007434B /* Services */,
 				6B8C8F381F9965B30007434B /* AppDelegate.swift */,
-				6B8C8F3F1F9965B30007434B /* LocationMapViewController.swift */,
 				6B8C8F411F9965B30007434B /* Main.storyboard */,
 				6B8C8F441F9965B30007434B /* Assets.xcassets */,
 				6B8C8F461F9965B30007434B /* LaunchScreen.storyboard */,
@@ -136,6 +138,15 @@
 				6B8C8F6A1F998D570007434B /* LocationListViewModel.swift */,
 			);
 			path = LocationList;
+			sourceTree = "<group>";
+		};
+		6B9F08561F9EE72800DED2A6 /* LocationMap */ = {
+			isa = PBXGroup;
+			children = (
+				6B8C8F3F1F9965B30007434B /* LocationMapViewController.swift */,
+				6B9F08571F9EE73D00DED2A6 /* LocationMapViewModel.swift */,
+			);
+			path = LocationMap;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -260,6 +271,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6B9F08581F9EE73D00DED2A6 /* LocationMapViewModel.swift in Sources */,
 				6B8C8F3C1F9965B30007434B /* SFMovieLocations.xcdatamodeld in Sources */,
 				6B8C8F391F9965B30007434B /* AppDelegate.swift in Sources */,
 				6B8C8F691F998D040007434B /* LocationListViewController.swift in Sources */,
