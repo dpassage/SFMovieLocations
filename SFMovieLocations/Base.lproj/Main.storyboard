@@ -25,10 +25,10 @@
             </objects>
             <point key="canvasLocation" x="-38" y="-630"/>
         </scene>
-        <!--Location List View Controller-->
+        <!--SF Movie Locations-->
         <scene sceneID="xeR-Ei-xHk">
             <objects>
-                <tableViewController storyboardIdentifier="LocationListViewController" id="pdP-CS-XfL" customClass="LocationListViewController" customModule="SFMovieLocations" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="LocationListViewController" title="SF Movie Locations" id="pdP-CS-XfL" customClass="LocationListViewController" customModule="SFMovieLocations" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="wgL-G2-d82">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -67,8 +67,15 @@
                             <outlet property="delegate" destination="pdP-CS-XfL" id="M4o-2T-hce"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="sdm-iN-O9o"/>
+                    <navigationItem key="navigationItem" title="SF Movie Locations" id="sdm-iN-O9o">
+                        <barButtonItem key="leftBarButtonItem" title="Sort" id="jPE-cB-7fk">
+                            <connections>
+                                <action selector="showSortSelector:" destination="pdP-CS-XfL" id="kM3-6a-lrr"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="9SN-Ea-yRA">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </refreshControl>
                 </tableViewController>

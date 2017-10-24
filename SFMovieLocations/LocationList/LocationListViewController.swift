@@ -48,6 +48,19 @@ class LocationListViewController: UITableViewController {
     @objc func handleRefresh(refreshControl: UIRefreshControl) {
         viewModel.refresh()
     }
+
+    @IBAction func showSortSelector(_ sender: UIBarButtonItem) {
+        let alert = UIAlertController(title: "Sort By", message: nil, preferredStyle: .actionSheet)
+        let titleAction = UIAlertAction(title: "Title", style: .default) { (_) in
+            self.viewModel.sortOrder = .byTitle
+        }
+        alert.addAction(titleAction)
+        let yearAction = UIAlertAction(title: "Year", style: .default) { (_) in
+            self.viewModel.sortOrder = .byYear
+        }
+        alert.addAction(yearAction)
+        present(alert, animated: true)
+    }
 }
 
 extension LocationListViewController: LocationListViewModelDelegate {
