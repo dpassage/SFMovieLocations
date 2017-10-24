@@ -35,6 +35,9 @@ class LocationMapViewController: UIViewController {
         if let newAnnoation = viewModel?.mapAnnotation {
             map.addAnnotation(newAnnoation)
         }
+        if let movieTitle = viewModel?.movieLocation.title {
+            self.navigationItem.title = movieTitle
+        }
     }
 }
 
