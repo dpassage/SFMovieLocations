@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6B6206F91F9EFA8100459FE2 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 6B6206F81F9EFA8000459FE2 /* README.md */; };
 		6B8C8F391F9965B30007434B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B8C8F381F9965B30007434B /* AppDelegate.swift */; };
 		6B8C8F401F9965B30007434B /* LocationMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B8C8F3F1F9965B30007434B /* LocationMapViewController.swift */; };
 		6B8C8F431F9965B30007434B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6B8C8F411F9965B30007434B /* Main.storyboard */; };
@@ -32,6 +33,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6B6206F81F9EFA8000459FE2 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		6B8C8F351F9965B30007434B /* SFMovieLocations.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SFMovieLocations.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B8C8F381F9965B30007434B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6B8C8F3F1F9965B30007434B /* LocationMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationMapViewController.swift; sourceTree = "<group>"; };
@@ -71,6 +73,7 @@
 		6B8C8F2C1F9965B30007434B = {
 			isa = PBXGroup;
 			children = (
+				6B6206F81F9EFA8000459FE2 /* README.md */,
 				6B8C8F371F9965B30007434B /* SFMovieLocations */,
 				6B8C8F511F9965B30007434B /* SFMovieLocationsTests */,
 				6B8C8F361F9965B30007434B /* Products */,
@@ -232,6 +235,7 @@
 			files = (
 				6B8C8F481F9965B30007434B /* LaunchScreen.storyboard in Resources */,
 				6B8C8F451F9965B30007434B /* Assets.xcassets in Resources */,
+				6B6206F91F9EFA8100459FE2 /* README.md in Resources */,
 				6B8C8F431F9965B30007434B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
